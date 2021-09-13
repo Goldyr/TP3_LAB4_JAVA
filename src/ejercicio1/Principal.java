@@ -1,5 +1,7 @@
 package ejercicio1;
 
+import java.util.TreeSet;
+
 import javax.swing.JOptionPane;
 
 public class Principal {
@@ -14,6 +16,16 @@ public class Principal {
 			e.printStackTrace();
 		}
 		
+		Archivo a = new Archivo();
+		a.setRuta("src\\ejercicio1\\Personas.txt");
+		if(!a.existe()) {
+			System.out.println("No existe");
+		}
+		TreeSet<Persona> listapersonas = (a.cargar_TreeSet());
+		
+		for(Persona x : listapersonas) {
+			System.out.println(x.toString());
+		}
 	}
 
 }
