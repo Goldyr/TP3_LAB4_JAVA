@@ -1,8 +1,10 @@
 package ejercicio1;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.TreeSet;
 
@@ -23,6 +25,29 @@ public class Archivo {
 		if(archivo.exists()){return true;}
 		return false;
 	}
+	
+	public void escribirlineas(TreeSet<Persona> lista) {
+		try {
+		FileWriter entrada = new FileWriter (ruta, true);
+		
+		BufferedWriter mibuffer= new BufferedWriter(entrada); 
+		
+		for(Persona x : lista) {
+			mibuffer.write(x.getNombre() +" "+ x.getApellido() +" "+ x.getDNI());
+			
+		}
+		
+		
+		mibuffer.close();
+		entrada.close();
+		
+		}catch(IOException e) {
+		e.printStackTrace();	
+		}
+	
+	}
+	
+	
 	
 	public TreeSet<Persona> cargar_TreeSet() { // carga el treeset con el archivo Personas.txt ordenado alfabeticamente
 		TreeSet<Persona> listaPersonas = new TreeSet<Persona>();
@@ -72,7 +97,7 @@ public class Archivo {
 					e.printStackTrace();
 					
 				}
-				catch(DniInvalido e) {
+			    catch(DniInvalido e) {
 					e.printStackTrace();
 				}
 				

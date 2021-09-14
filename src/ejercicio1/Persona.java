@@ -27,8 +27,7 @@ public class Persona implements Comparable<Persona>{
 		if(HayLetra==true || DNI.length()==0) {
 			throw new DniInvalido();			
 		}
-		
-		return HayLetra;
+				return HayLetra;
 	}
 	
 	public String getNombre() {
